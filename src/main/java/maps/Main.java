@@ -26,8 +26,8 @@ public class Main {
         map.put(5, null);
 
         Set<Integer> keys = map.keySet();
-        Integer[] arr = keys.toArray(new Integer[3]);
-        System.out.println(arr.length);
+        Integer[] arr = keys.toArray(new Integer[keys.size()]);
+        System.out.println("arr = " + arr.length);
 
         System.out.println(new Integer[3]);
 

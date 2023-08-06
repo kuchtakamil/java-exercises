@@ -1,36 +1,34 @@
-package devskill3;
+package others;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.Queue;
-import java.util.Scanner;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.Vector;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 
-public class Main {
+public class Main2 {
     final static A a11 = new A();
     public static void main(String[] args) throws FileNotFoundException {
         transform(HashSet::new);
+        transform(() -> new HashSet<>());
         transform(HashSet<String>::new);
 
         final Optional<Integer> integer = Optional.ofNullable(2);
-        Optional.of(3);
-    A a1 = new A();
-    A a2 = new A();
+        final Optional<Integer> integer1 = Optional.of(3);
+
+        A a1 = new A();
+        A a2 = new A();
 
         System.out.println(a1 == a2);
         System.out.println(a1.equals(a2));
+
+        System.out.println("static with non static");
+        System.out.println(a11 == a2);
+        System.out.println(a11.equals(a2));
 
 //        try (Scanner scanner = new Scanner(new File("testRead.txt"));
 //             PrintWriter writer = new PrintWriter(new File("testWrite.txt"))) {
@@ -90,7 +88,9 @@ public class Main {
     static void replace(List o) {
         List l = new ArrayList();
         l.add(100);
+        System.out.println("pre " + o);
         o = l;
+        System.out.println("pre2 " + o);
     }
 
     public static int workaroundSingleThread() {
