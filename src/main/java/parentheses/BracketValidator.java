@@ -25,14 +25,16 @@ public class BracketValidator {
             if (bracket.getType().equals(Bracket.Type.OPEN)) {
                 bracketsStack.push(bracket);
             } else {
+                if (bracketsStack.isEmpty())
+                    return false;
                 final Optional<Bracket> matchedCloseBracket = matchClose(bracket);
                 if (matchedCloseBracket.isPresent() && !matchedCloseBracket.get().equals(bracketsStack.pop())) {
-                } else {
                     return false;
                 }
             }
         }
-        return true;
+
+        return bracketsStack.isEmpty() ? true : false;
     }
 
     private static Optional<Bracket> matchClose(Bracket closeBracket) {
