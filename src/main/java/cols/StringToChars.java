@@ -10,7 +10,7 @@ public class StringToChars {
     public static void main(String[] args) {
         String str = "2457";
 //        String -> List<Char>, List<String>
-        // TS:
+// TS:
 //        List<Character> chars = Arrays.asList(str.toCharArray());
         List<Character> chars =  str.chars().mapToObj(i -> (char) i).collect(Collectors.toList());
         List<String> symbols =  str.chars().mapToObj(i -> Character.toString(i)).collect(Collectors.toList());
